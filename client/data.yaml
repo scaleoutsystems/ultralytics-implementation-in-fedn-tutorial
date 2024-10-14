@@ -2,5 +2,6 @@ train: fed_dataset/train/images
 val: fed_dataset/valid/images
 test: fed_dataset/test/images
 
-nc: 1
-names: ['Class 1']
+nc: 3 # DEFINE NUMBER OF CLASSES HERE
+
+names: ['Class 1', 'Class 2','Class 3'] # DEFINE CLASS NAMES HERE
