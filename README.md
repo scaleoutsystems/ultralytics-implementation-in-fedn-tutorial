@@ -23,11 +23,11 @@ pip3 install -r requirements.txt
 ## Step 3: Setting up the data
 
 For your dataset to be found by Ultralytics the "datasets_dir" needs to be configured.
-This is done by setting runnning the following command:
+This is done by running the following command:
 ```bash
 yolo settings datasets_dir=<path_to_dataset>
 ```
-This needs to be directed to a folder named "fed_dataset" where the data is structured as follows:
+This needs to be directed to your dataset folder (in this tutorial named "fed_dataset") where the data is structured as follows:
 
 ```
 fed_dataset/
@@ -55,7 +55,6 @@ The labels should be in the format of:
 ```
 <class> <x_center> <y_center> <width> <height>
 ```
-
 
 ## Step 4: Setting up configurations
 Next, you need to set up the configurations for the Ultralytics models. 
