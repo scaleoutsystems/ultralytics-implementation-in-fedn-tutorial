@@ -23,12 +23,12 @@ By following these steps, you will not only gain hands-on experience with the FE
 - [FEDn] <https://fedn.scaleoutsystems.com/>
 - [Ultralytics] <https://www.ultralytics.com/>
 
-## Step 1: Start the server in FEDn
+## Step 1: Starting the server in FEDn
 Firstly, create an account on the FEDn platform: `FEDn <https://fedn.scaleoutsystems.com/signup>`__
 Once you are logged in, you need to start a new project by clicking on the `New project` button.
 This initializes the server which later will be used to run the federated learning process.
 
-## Step 2: Clone the repository
+## Step 2: Cloning the repository
 Next, you need to clone the repository:
 ```bash
 git clone https://github.com/scaleoutsystems/ultralytics-implementation-in-fedn-tutorial
@@ -43,6 +43,8 @@ Next, you need to install the prerequisites. You can install everything using pi
 ```bash
 pip3 install -r requirements.txt
 ```
+This is recommended to be done in a virtual environment to avoid conflicts with other packages.
+
 
 ## Step 4: Setting up the dataset
 Ultralytics stores all datasets in a specific directory called datasets. You can set the location of this directory by configuring the datasets_dir option. To do this, run the following command:
@@ -87,7 +89,7 @@ For further details on how to prepare your dataset, you can refer to <https://do
 ## Step 5: Setting up configurations
 To set up your Ultralytics model, you need to adjust the configuration files. Specifically, the number of classes (nc) must be set in both the `data.yaml` and the `yolov8_.yaml` files.
 
-You can select which YOLOv8 model to use by renaming the `yolov8_.yaml` file according to the desired model variant:
+You need to select which YOLOv8 model to use by renaming the `yolov8_.yaml` file according to the desired model variant:
 - For YOLOv8n (nano), rename the file to `yolov8n.yaml`
 - For YOLOv8s (small), rename the file to `yolov8s.yaml`
 - For YOLOv8m (medium), rename the file to `yolov8m.yaml`
@@ -108,18 +110,19 @@ To initialize the seed model, run the following command:
 ```bash
 fedn run build -p client
 ```
+This command will generate the seed model that will be used as the starting point for the federated learning process.
 
-## Step 8: Initilize the server-side
-The next step is to initilize the server side with the client code:
-Upload the compute package and the seed model in the sessions page. 
+## Step 8: Initilizing the server-side
+The next step is to initilize the server side. This is done by uploading the compute package and the seed model to the FEDn platform.
 
-## Step 9: Start the clients
+
+## Step 9: Starting the clients
 Download a client.yaml file from the FEDn platform and place it in the repository.
 To start the client, run the following command:
 ```bash
 fedn client start -in client --secure=True --force-ssl
 ```
+This ...
 
-
-## Step 10: Train the global model
-Start the global trainiung n
+## Step 10: Training the global model
+Once the clients are running, you can start the global training by pressing the Start session button. You can monitor the training progress on the FEDn platform.
