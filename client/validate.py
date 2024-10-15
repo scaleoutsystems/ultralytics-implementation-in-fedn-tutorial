@@ -28,9 +28,13 @@ def validate(in_model_path, out_json_path, data_yaml_path='data.yaml'):
     # Extract metrics from the results
     report = {
         "training_recall": train_results.results_dict['metrics/recall(B)'],
-        "training_box_mAP50": train_results.results_dict['metrics/mAP50(B)'],  # mAP for training data
+        "training_precision": train_results.results_dict['metrics/precision(B)'],
+        "training_mAP50": train_results.results_dict['metrics/mAP50(B)'],  # mAP for training data
+        "training_mAP50-95": train_results.results_dict['metrics/mAP50-95(B)'],  # mAP for training data
         "test_recall": test_results.results_dict['metrics/recall(B)'],
-        "test__box_mAP50": test_results.results_dict['metrics/mAP50(B)'],  # mAP for testing data
+        "test_precision": test_results.results_dict['metrics/precision(B)'],
+        "test_mAP50": test_results.results_dict['metrics/mAP50(B)'],  # mAP for testing data
+        "test_mAP50-95": test_results.results_dict['metrics/mAP50-95(B)'],  # mAP for testing data
     }
 
     # Save JSON report (mandatory for FEDn)
