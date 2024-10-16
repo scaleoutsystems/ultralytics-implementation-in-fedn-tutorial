@@ -20,11 +20,11 @@ By the end of this tutorial, you will have built a distributed training environm
 By following these steps, you will not only gain hands-on experience with the FEDn platform but also learn how to integrate object detection tasks with YOLOv8 in a federated learning environment.
 
 ## Prerequisites
-- `[FEDn] <https://fedn.scaleoutsystems.com/>``
-- `[Ultralytics] <https://www.ultralytics.com/>``
+- [FEDn] <https://fedn.scaleoutsystems.com/>
+- [Ultralytics] <https://www.ultralytics.com/>
 
 ## Step 1: Starting the server in FEDn
-Firstly, create an account on the FEDn studio platform: `FEDn Studio <https://fedn.scaleoutsystems.com/signup>`__
+Firstly, create an account on the FEDn studio platform <https://fedn.scaleoutsystems.com/signup>.
 Once you are logged in, you need to start a new project by clicking on the `New project` button.
 This initializes the server which later will be used to run the federated learning process.
 
@@ -84,7 +84,7 @@ Each label file should correspond to an image file, and the format of each label
 ```
 Each line corresponds to one bounding box in the image.
 
-For further details on how to prepare your dataset, you can visit the `Ultralytics datasets <https://docs.ultralytics.com/datasets/>`__ documentation.
+For further details on how to prepare your dataset, you can visit <https://docs.ultralytics.com/datasets/>.
 
 ## Step 5: Setting up configurations
 To set up your Ultralytics model, you need to adjust the configuration files. Specifically, the number of classes (nc) must be set in both the `data.yaml` and the `yolov8_.yaml` files. Make sure to update these files with the appropriate number of classes for your specific dataset.
@@ -137,6 +137,6 @@ One training is completed, you can download any model from a certain round in th
 In this tutorial, you have learned how to implement Ultralytics YOLOv8 models in a federated learning setting using the FEDn platform. By following the steps outlined in this tutorial, you have successfully set up a distributed training environment where clients independently train local models, and a global model is aggregated on the server. You have also learned how to configure the dataset, set up the model configurations, build the compute package, and start the federated learning process. By completing this tutorial, you have gained hands-on experience with federated learning and object detection tasks using Ultralytics models.
 
 # Note
-Steps 1, 2, 5, 6, 7 and 8 only need to be done once to set up the federated learning environment.
+Steps 1, 2, 5, 6, 7 and 8 only need to be done once to set up the federated learning environment in FEDn.
 
 To connect a new client, the only steps that needs to be followed are step 3, 4 and 9.
