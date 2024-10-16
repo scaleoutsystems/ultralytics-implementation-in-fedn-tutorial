@@ -20,11 +20,11 @@ By the end of this tutorial, you will have built a distributed training environm
 By following these steps, you will not only gain hands-on experience with the FEDn platform but also learn how to integrate object detection tasks with YOLOv8 in a federated learning environment.
 
 ## Prerequisites
-- [FEDn] <https://fedn.scaleoutsystems.com/>
-- [Ultralytics] <https://www.ultralytics.com/>
+- `[FEDn] <https://fedn.scaleoutsystems.com/>``
+- `[Ultralytics] <https://www.ultralytics.com/>``
 
 ## Step 1: Starting the server in FEDn
-Firstly, create an account on the FEDn studio platform: `FEDn <https://fedn.scaleoutsystems.com/signup>`__
+Firstly, create an account on the FEDn studio platform: `FEDn Studio <https://fedn.scaleoutsystems.com/signup>`__
 Once you are logged in, you need to start a new project by clicking on the `New project` button.
 This initializes the server which later will be used to run the federated learning process.
 
@@ -84,7 +84,7 @@ Each label file should correspond to an image file, and the format of each label
 ```
 Each line corresponds to one bounding box in the image.
 
-For further details on how to prepare your dataset, you can visit <https://docs.ultralytics.com/datasets/>.
+For further details on how to prepare your dataset, you can visit the `Ultralytics datasets <https://docs.ultralytics.com/datasets/>`__ documentation.
 
 ## Step 5: Setting up configurations
 To set up your Ultralytics model, you need to adjust the configuration files. Specifically, the number of classes (nc) must be set in both the `data.yaml` and the `yolov8_.yaml` files. Make sure to update these files with the appropriate number of classes for your specific dataset.
