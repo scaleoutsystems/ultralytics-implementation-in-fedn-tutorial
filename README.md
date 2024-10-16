@@ -14,7 +14,7 @@ By the end of this tutorial, you will have built a distributed training environm
 6.	Building the compute package – Build the compute package to prepare for the training process.
 7.	Initializing the seed model – Generate the initial model to start the training process.
 8.	Initializing the server-side – Set up the server-side of the federated learning system.
-9.	Starting the clients – Launch the clients that will participate in the federated training.
+9.	Connecting and starting the clients – Connect the clients that will participate in the federated training.
 10.	Training the global model – Observe how the global model improves through the aggregation of client updates and monitor training progress.
 
 By following these steps, you will not only gain hands-on experience with the FEDn platform but also learn how to integrate object detection tasks with YOLOv8 in a federated learning environment.
@@ -119,7 +119,7 @@ Once the compute package and seed model are uploaded, you can create the session
 
 Before starting the training process, you need to connect the clients to the server which is done in the next step.
 
-## Step 9: Starting the clients
+## Step 9: Connecting and starting the clients
 To connect a client to the server, you need to hand each client a client.yaml file. This file contains the necessary configurations for the client to connect to the server and gain access to the compute package. Connect clients by pressing the Clients button on the left hand side. Here you can download a client.yaml file for each client.
 Place the client.yaml file in the repository folder and start the client by running following command:
 ```bash
@@ -136,3 +136,7 @@ One training is completed, you can download any model from a certain round in th
 ## Conclusion
 In this tutorial, you have learned how to implement Ultralytics YOLOv8 models in a federated learning setting using the FEDn platform. By following the steps outlined in this tutorial, you have successfully set up a distributed training environment where clients independently train local models, and a global model is aggregated on the server. You have also learned how to configure the dataset, set up the model configurations, build the compute package, and start the federated learning process. By completing this tutorial, you have gained hands-on experience with federated learning and object detection tasks using Ultralytics models.
 
+# Note
+Steps 1, 2, 5, 6, 7 and 8 only need to be done once to set up the federated learning environment.
+
+To connect a new client, the only steps that needs to be followed are step 3, 4 and 9.
