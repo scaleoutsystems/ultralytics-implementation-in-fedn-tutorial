@@ -9,7 +9,7 @@ from model import load_parameters, save_parameters
 from data import get_train_size
 import yaml
 
-def train(in_model_path, out_model_path, data_yaml_path='data.yaml', epochs=10):
+def train(in_model_path, out_model_path, data_yaml_path='data.yaml', epochs=10,batch_size=16):
     """Complete a model update using YOLOv8.
 
     Load model parameters from in_model_path (managed by the FEDn client),
@@ -33,14 +33,15 @@ def train(in_model_path, out_model_path, data_yaml_path='data.yaml', epochs=10):
     # Load YOLOv8 model
     model = load_parameters(in_model_path)
 
-    # Load the client configuration
+    # Load the client configuration 
     config_path = os.path.join(os.path.dirname(__file__), '../../client_config.yaml')
-    with open(config_path, 'r') as file:
-        config = yaml.safe_load(file)
-
-    # Get the local epochs from the configuration
-    epochs = config.get('local_epochs', epochs)
-    batch_size = config.get('batch_size', 16)
+    if os.path.exists(config_path):
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+        epochs = config.get('local_epochs', epochs)
+        batch_size = config.get('batch_size', batch_size)
+    else:
+        print(f"Config file not found at {config_path}. Using default epochs ({epochs}) and batch size ({batch_size}).")
 
     # Train the model and remove the unnecessary files
     with tempfile.TemporaryDirectory() as tmp_dir:
