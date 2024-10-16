@@ -99,8 +99,8 @@ You also need to select which YOLOv8 model to use by renaming the `yolov8_.yaml`
 - For YOLOv8l (large), rename the file to `yolov8l.yaml`
 - For YOLOv8x (extra large), rename the file to `yolov8x.yaml`
 
-### Number of local epochs
-The number of local epochs each client will train for can be set in the `client_config.yaml` file. This file contains the configurations for the client environments, such as the number of local epochs, and batch size. You can adjust these configurations to suit each client's hardware and training requirements.
+### Local client configurations
+Each client can set different training configurations in the `client_config.yaml` file. This file contains the configurations for the client environments, such as the number of local epochs, and batch size. You can adjust these configurations to suit each client's hardware and training requirements.
 
 ##  Step 6: Building the compute package
 Once you’ve completed all the configurations, you can build the compute package by running the following command:
@@ -125,8 +125,8 @@ Once the compute package and seed model are uploaded, you can create the session
 Before starting the training process, you need to connect the clients to the server which is done in the next step.
 
 ## Step 9: Connecting and starting the clients
-To connect a client to the server, you need to hand each client a client.yaml file. This file contains the necessary configurations for the client to connect to the server and gain access to the compute package. Connect clients by pressing the Clients button on the left hand side. Here you can download a client.yaml file for each client.
-Place the client.yaml file in the repository folder and start the client by running following command:
+To connect a client to the server, you need to hand each client a client.yaml file. This file contains the necessary configurations for the client to connect to the server and gain access to the compute package. Connect clients by pressing the "Clients" button on the left hand side. Here you can download a client.yaml file for each client.
+Place the client.yaml file in the repository and start the client by running following command:
 ```bash
 fedn client start -in client.yaml --secure=True --force-ssl
 ```
