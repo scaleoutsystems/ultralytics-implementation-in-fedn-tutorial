@@ -87,8 +87,11 @@ Each line corresponds to one bounding box in the image.
 For further details on how to prepare your dataset, you can visit <https://docs.ultralytics.com/datasets/>.
 
 ## Step 5: Setting up configurations
+
+### Number of classes
 To set up your Ultralytics model, you need to adjust the configuration files. Specifically, the number of classes (nc) must be set in both the `data.yaml` and the `yolov8_.yaml` files. Make sure to update these files with the appropriate number of classes for your specific dataset.
 
+### Size of the model
 You also need to select which YOLOv8 model to use by renaming the `yolov8_.yaml` file according to the desired model variant:
 - For YOLOv8n (nano), rename the file to `yolov8n.yaml`
 - For YOLOv8s (small), rename the file to `yolov8s.yaml`
@@ -96,6 +99,8 @@ You also need to select which YOLOv8 model to use by renaming the `yolov8_.yaml`
 - For YOLOv8l (large), rename the file to `yolov8l.yaml`
 - For YOLOv8x (extra large), rename the file to `yolov8x.yaml`
 
+### Number of local epochs
+The number of local epochs each client will train for can be set in the `client_config.yaml` file. This file contains the configurations for the client environments, such as the number of local epochs, and batch size. You can adjust these configurations to suit each client's hardware and training requirements.
 
 ##  Step 6: Building the compute package
 Once you’ve completed all the configurations, you can build the compute package by running the following command:

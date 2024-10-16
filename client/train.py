@@ -39,14 +39,12 @@ def train(in_model_path, out_model_path, data_yaml_path='data.yaml', epochs=10):
         config = yaml.safe_load(file)
 
     # Get the local epochs from the configuration
-    local_epochs = config.get('local_epochs', epochs)
+    epochs = config.get('local_epochs', epochs)
+    batch_size = config.get('batch_size', 16)
 
-    if local_epochs is not None:
-        epochs = local_epochs
-    
     # Train the model and remove the unnecessary files
     with tempfile.TemporaryDirectory() as tmp_dir:
-        model.train(data='data.yaml', epochs=epochs,verbose=False,exist_ok=True, project=tmp_dir)
+        model.train(data='data.yaml', epochs=epochs,batch=batch_size,verbose=False,exist_ok=True, project=tmp_dir)
 
     # Save the updated model to the output path
     save_parameters(model, out_model_path)
