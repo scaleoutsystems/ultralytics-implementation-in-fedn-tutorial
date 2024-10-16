@@ -1,0 +1,2 @@
+local_epochs: 10 # DEFINE NUMBER OF LOCAL EPOCHS HERE
+

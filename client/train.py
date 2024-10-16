@@ -7,6 +7,7 @@ import tempfile
 
 from model import load_parameters, save_parameters
 from data import get_train_size
+import yaml
 
 def train(in_model_path, out_model_path, data_yaml_path='data.yaml', epochs=10):
     """Complete a model update using YOLOv8.
@@ -31,6 +32,17 @@ def train(in_model_path, out_model_path, data_yaml_path='data.yaml', epochs=10):
 
     # Load YOLOv8 model
     model = load_parameters(in_model_path)
+
+    # Load the client configuration
+    config_path = os.path.join(os.path.dirname(__file__), '../client_config.yaml')
+    with open(config_path, 'r') as file:
+        config = yaml.safe_load(file)
+
+    # Get the local epochs from the configuration
+    local_epochs = config.get('local_epochs', epochs)
+
+    if local_epochs is not None:
+        epochs = local_epochs
     
     # Train the model and remove the unnecessary files
     with tempfile.TemporaryDirectory() as tmp_dir:
@@ -54,7 +66,6 @@ if __name__ == "__main__":
 
     in_model_path = sys.argv[1]
     out_model_path = sys.argv[2]
-    data_yaml_path = sys.argv[3] if len(sys.argv) > 3 else 'data.yaml'
-    epochs = int(sys.argv[4]) if len(sys.argv) > 4 else 10
+    epochs = int(sys.argv[3]) if len(sys.argv) > 3 else 10
 
-    train(in_model_path, out_model_path, data_yaml_path, epochs)
+    train(in_model_path, out_model_path, epochs)
